@@ -260,9 +260,9 @@ func getSafeTableName(baseName string, suffix string) string {
 // or a given table name
 func (this *MigrationContext) GetGhostTableName() string {
 	if this.ForceTmpTableName != "" {
-		return getSafeTableName(this.ForceTmpTableName, "gho")
+		return getSafeTableName(this.ForceTmpTableName, "gho_tmp")
 	} else {
-		return getSafeTableName(this.OriginalTableName, "gho")
+		return getSafeTableName(this.OriginalTableName, "gho_tmp")
 	}
 }
 
@@ -280,18 +280,18 @@ func (this *MigrationContext) GetOldTableName() string {
 		timestamp := fmt.Sprintf("%d%02d%02d%02d%02d%02d",
 			t.Year(), t.Month(), t.Day(),
 			t.Hour(), t.Minute(), t.Second())
-		return getSafeTableName(tableName, fmt.Sprintf("%s_del", timestamp))
+		return getSafeTableName(tableName, fmt.Sprintf("%s_del_tmp", timestamp))
 	}
-	return getSafeTableName(tableName, "del")
+	return getSafeTableName(tableName, "del_tmp")
 }
 
 // GetChangelogTableName generates the name of changelog table, based on original table name
 // or a given table name.
 func (this *MigrationContext) GetChangelogTableName() string {
 	if this.ForceTmpTableName != "" {
-		return getSafeTableName(this.ForceTmpTableName, "ghc")
+		return getSafeTableName(this.ForceTmpTableName, "ghc_tmp")
 	} else {
-		return getSafeTableName(this.OriginalTableName, "ghc")
+		return getSafeTableName(this.OriginalTableName, "ghc_tmp")
 	}
 }
 
