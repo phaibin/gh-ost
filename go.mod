@@ -1,4 +1,4 @@
-module github.com/hanchuanchuan/gh-ost
+module github.com/phaibin/gh-ost
 
 replace github.com/outbrain/golib/log => github.com/sirupsen/logrus v1.2.0
 
